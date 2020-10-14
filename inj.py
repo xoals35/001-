@@ -13,7 +13,7 @@ client = discord.Client()
 @client.event
 async def on_ready():
     print("인증 봇이 정상적으로 실행되었습니다.")
-    game = discord.Game('호로롤')
+    game = discord.Game('(봇 밑에 뭐라고할지설정)')
     await client.change_presence(status=discord.Status.online, activity=game)
     
 @client.event
@@ -45,7 +45,7 @@ async def on_message(message):
             return
 
         if msg.content == a:
-            role = discord.utils.get(message.guild.roles, name="D계급")
+            role = discord.utils.get(message.guild.roles, name="(역할이름)")
             await message.channel.purge(limit=4)
             tjdrhdEmbed = discord.Embed(title='인증성공', color=0x04FF00)
             tjdrhdEmbed.add_field(name='닉네임', value=message.author, inline=False)
@@ -62,6 +62,6 @@ async def on_message(message):
             await message.channel.send(embed=tlfvoEmbed)
             print(f'{message.author} 님이 잘못된 숫자로 인해 인증을 실패함.')
 
-client.run('NzYxODk4OTY1MzM1NDA4NjUw.X3hTtA.o9fNAFOJAHB_u5qsyGAC618WVnY')
+client.run('(봇토큰)')
 
 
